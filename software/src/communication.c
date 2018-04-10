@@ -24,6 +24,9 @@
 #include "bricklib2/utility/communication_callback.h"
 #include "bricklib2/protocols/tfp/tfp.h"
 
+#include "mcp4725.h"
+#include "voltage.h"
+
 BootloaderHandleMessageResponse handle_message(const void *message, void *response) {
 	switch(tfp_get_fid_from_message(message)) {
 		case FID_SET_OUTPUT_VOLTAGE: return set_output_voltage(message);
@@ -35,24 +38,27 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 
 
 BootloaderHandleMessageResponse set_output_voltage(const SetOutputVoltage *data) {
+	if(data->voltage > 12000) {
+		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
+	}
 
+	mcp4725.voltage_output = data->voltage;
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
 BootloaderHandleMessageResponse get_output_voltage(const GetOutputVoltage *data, GetOutputVoltage_Response *response) {
 	response->header.length = sizeof(GetOutputVoltage_Response);
+	response->voltage       = mcp4725.voltage_output;
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
 BootloaderHandleMessageResponse get_input_voltage(const GetInputVoltage *data, GetInputVoltage_Response *response) {
 	response->header.length = sizeof(GetInputVoltage_Response);
+	response->voltage       = voltage_get_voltage();
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
-
-
-
 
 
 void communication_tick(void) {

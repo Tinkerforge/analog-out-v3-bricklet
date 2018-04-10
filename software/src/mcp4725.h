@@ -1,7 +1,7 @@
 /* analog-out-v3-bricklet
  * Copyright (C) 2018 Olaf Lüke <olaf@tinkerforge.com>
  *
- * main.c: Initialization for Analog Out V3 Bricklet
+ * mcp4725.h: Driver for MCP4725 D/A converter
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,29 +19,28 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#include <stdio.h>
+#ifndef MCP4725_H
+#define MCP4725_H
+
+#include <stdint.h>
 #include <stdbool.h>
 
-#include "configs/config.h"
+#include "bricklib2/hal/i2c_fifo/i2c_fifo.h"
 
-#include "bricklib2/bootloader/bootloader.h"
-#include "bricklib2/hal/system_timer/system_timer.h"
-#include "bricklib2/logging/logging.h"
-#include "communication.h"
-#include "mcp4725.h"
-#include "voltage.h"
+typedef struct {
+    I2CFifo i2c_fifo;
 
-int main(void) {
-	logging_init();
-	logd("Start Analog Out V3 Bricklet\n\r");
+    uint16_t voltage_output;
+    uint16_t last_voltage_output;
 
-	communication_init();
-	mcp4725_init();
-	voltage_init();
+    bool in_progress;
+    uint32_t start;
+} MCP4725;
 
-	while(true) {
-		bootloader_tick();
-		communication_tick();
-		mcp4725_tick();
-	}
-}
+extern MCP4725 mcp4725;
+
+void mcp4725_init(void);
+void mcp4725_tick(void);
+uint16_t mcp4725_get_input_voltage(void);
+
+#endif
