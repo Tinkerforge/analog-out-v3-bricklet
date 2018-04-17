@@ -27,8 +27,6 @@
 #include "bricklib2/logging/logging.h"
 #include "bricklib2/utility/util_definitions.h"
 
-#define MCP4725_WRITE_TIMEOUT 100 // in ms
-
 MCP4725 mcp4725;
 
 void mcp4725_init_i2c(void) {
@@ -73,12 +71,6 @@ void mcp4725_tick(void) {
         return;
 	}
 
-	if(mcp4725.in_progress && system_timer_is_time_elapsed_ms(mcp4725.start, MCP4725_WRITE_TIMEOUT)) {
-        loge("MCP4725 I2C timeout: %d (%d)\n\r", state, mcp4725.i2c_fifo.i2c_status);
-        mcp4725_init();
-        return;
-	}
-
     switch(state) {
         case I2C_FIFO_STATE_WRITE_DIRECT_READY: {
 			mcp4725.in_progress = false;
@@ -106,7 +98,6 @@ void mcp4725_tick(void) {
             const uint16_t set_voltage = mcp4725.voltage_output*4095/12000;
             uint8_t data[2] = {set_voltage >> 8, set_voltage & 0xFF};
 			mcp4725.in_progress = true;
-			mcp4725.start = system_timer_get_ms();
             i2c_fifo_write_direct(&mcp4725.i2c_fifo, 2, data, true);
         }
     }

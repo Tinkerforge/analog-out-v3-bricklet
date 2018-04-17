@@ -34,7 +34,6 @@ typedef struct {
     uint16_t last_voltage_output;
 
     bool in_progress;
-    uint32_t start;
 } MCP4725;
 
 extern MCP4725 mcp4725;
