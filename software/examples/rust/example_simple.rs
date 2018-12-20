@@ -1,6 +1,8 @@
-use std::{error::Error, io};
+use std::{io, error::Error};
 
-use tinkerforge::{analog_out_v3_bricklet::*, ip_connection::IpConnection};
+use tinkerforge::{ip_connection::IpConnection, 
+                  analog_out_v3_bricklet::*};
+
 
 const HOST: &str = "localhost";
 const PORT: u16 = 4223;
@@ -11,10 +13,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     let ao = AnalogOutV3Bricklet::new(UID, &ipcon); // Create device object.
 
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
-                                          // Don't use device before ipcon is connected.
+    // Don't use device before ipcon is connected.
 
-    // Set output voltage to 3.3V
-    ao.set_output_voltage(3300);
+		// Set output voltage to 3.3V
+		ao.set_output_voltage(3300);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
