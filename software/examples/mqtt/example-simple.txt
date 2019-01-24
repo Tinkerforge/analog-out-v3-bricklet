@@ -1,0 +1,7 @@
+
+
+# Change XYZ to the UID of your Analog Out Bricklet 3.0
+
+setup:
+	# Set output voltage to 3.3V
+	publish '{"voltage": 3300}' to tinkerforge/request/analog_out_v3_bricklet/XYZ/set_output_voltage 
