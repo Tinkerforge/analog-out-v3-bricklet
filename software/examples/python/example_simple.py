@@ -18,5 +18,5 @@ if __name__ == "__main__":
     # Set output voltage to 3.3V
     ao.set_output_voltage(3300)
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()
