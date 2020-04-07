@@ -14,7 +14,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                                           // Don't use device before ipcon is connected.
 
     // Set output voltage to 3.3V
-    ao.set_output_voltage(3300);
+    ao.set_output_voltage(3300).recv()?;
 
     println!("Press enter to exit.");
     let mut _input = String::new();
