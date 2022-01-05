@@ -1,36 +1,5 @@
-EESchema Schematic File Version 2
-LIBS:tinkerforge
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:analog-out-v3-cache
-EELAYER 25 0
+EESchema Schematic File Version 4
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -431,9 +400,9 @@ max. Input Voltage: 12V\nAmplifier theoretical max voltage: 12k/3k3*3.3V = 12.0V
 Text Notes 8250 1600 0    60   ~ 0
 max. 18.7V
 Wire Wire Line
-	5000 4050 5650 4050
+	5000 4050 5150 4050
 Wire Wire Line
-	5000 3950 5650 3950
+	5000 3950 5450 3950
 Wire Wire Line
 	8300 4150 8500 4150
 Wire Wire Line
@@ -458,7 +427,7 @@ Wire Wire Line
 Wire Wire Line
 	7850 5850 7850 5700
 Wire Wire Line
-	9350 4900 9350 4750
+	9350 4900 9350 4800
 Wire Wire Line
 	9400 4800 9350 4800
 Connection ~ 9350 4800
@@ -505,7 +474,7 @@ Wire Wire Line
 Wire Wire Line
 	10450 4150 10350 4150
 Wire Wire Line
-	10350 3950 10350 4750
+	10350 3950 10350 4150
 Wire Wire Line
 	10450 3950 10350 3950
 Connection ~ 10350 4150
@@ -729,7 +698,7 @@ Wire Wire Line
 Wire Wire Line
 	1500 2500 1500 2450
 Wire Wire Line
-	1250 1950 1750 1950
+	1250 1950 1500 1950
 Wire Wire Line
 	1500 2050 1500 1950
 Connection ~ 1500 1950
@@ -748,9 +717,9 @@ Wire Wire Line
 Wire Wire Line
 	2450 1950 2150 1950
 Wire Wire Line
-	2200 1500 2200 1350
+	2200 1500 2200 1450
 Wire Wire Line
-	1250 1450 2200 1450
+	1250 1450 1700 1450
 Connection ~ 2200 1450
 Wire Wire Line
 	1700 1350 1700 1450
@@ -760,9 +729,9 @@ Wire Wire Line
 Wire Wire Line
 	1500 1550 1500 850 
 Wire Wire Line
-	1500 850  2200 850 
+	1500 850  1700 850 
 Wire Wire Line
-	2200 800  2200 950 
+	2200 800  2200 850 
 Connection ~ 2200 850 
 Wire Wire Line
 	1700 950  1700 850 
@@ -780,7 +749,7 @@ L XMC1XXX24 U1
 U 1 1 5A987F20
 P 4150 7100
 F 0 "U1" H 4000 7500 60  0000 C CNN
-F 1 "XMC11XX24" H 4150 6700 60  0000 C CNN
+F 1 "XMC1100" H 4150 6700 60  0000 C CNN
 F 2 "kicad-libraries:QFN24-4x4mm-0.5mm" H 4300 7850 60  0001 C CNN
 F 3 "" H 4300 7850 60  0000 C CNN
 	1    4150 7100
@@ -791,7 +760,7 @@ L XMC1XXX24 U1
 U 3 1 5A988012
 P 4100 4650
 F 0 "U1" H 3950 4900 60  0000 C CNN
-F 1 "XMC11XX24" H 4100 4400 60  0000 C CNN
+F 1 "XMC1100" H 4100 4400 60  0000 C CNN
 F 2 "kicad-libraries:QFN24-4x4mm-0.5mm" H 4250 5400 60  0001 C CNN
 F 3 "" H 4250 5400 60  0000 C CNN
 	3    4100 4650
@@ -802,7 +771,7 @@ L XMC1XXX24 U1
 U 4 1 5A988094
 P 4100 5750
 F 0 "U1" H 3950 6200 60  0000 C CNN
-F 1 "XMC11XX24" H 4100 5300 60  0000 C CNN
+F 1 "XMC1100" H 4100 5300 60  0000 C CNN
 F 2 "kicad-libraries:QFN24-4x4mm-0.5mm" H 4250 6500 60  0001 C CNN
 F 3 "" H 4250 6500 60  0000 C CNN
 	4    4100 5750
@@ -813,7 +782,7 @@ L XMC1XXX24 U1
 U 2 1 5A988121
 P 4100 3500
 F 0 "U1" H 3950 4050 60  0000 C CNN
-F 1 "XMC11XX24" H 4100 2950 60  0000 C CNN
+F 1 "XMC1100" H 4100 2950 60  0000 C CNN
 F 2 "kicad-libraries:QFN24-4x4mm-0.5mm" H 4250 4250 60  0001 C CNN
 F 3 "" H 4250 4250 60  0000 C CNN
 	2    4100 3500
@@ -895,7 +864,7 @@ F 3 "" H 3600 7450 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3600 7250 3600 7450
+	3600 7250 3600 7300
 Wire Wire Line
 	3800 7400 3600 7400
 Connection ~ 3600 7400
@@ -903,7 +872,7 @@ Wire Wire Line
 	3800 7300 3600 7300
 Connection ~ 3600 7300
 Wire Wire Line
-	3600 6850 3600 6750
+	3600 6850 3600 6800
 Wire Wire Line
 	3800 6800 3600 6800
 Connection ~ 3600 6800
@@ -971,7 +940,7 @@ Wire Wire Line
 Wire Wire Line
 	7850 1700 7850 2150
 Wire Wire Line
-	7600 2150 7900 2150
+	7600 2150 7850 2150
 Connection ~ 7850 2150
 Text GLabel 7600 2150 0    47   Output ~ 0
 VIN
@@ -1010,7 +979,7 @@ $EndComp
 Wire Wire Line
 	5150 3450 5150 3400
 Wire Wire Line
-	5150 3400 5450 3400
+	5150 3400 5250 3400
 Wire Wire Line
 	5450 3400 5450 3450
 Wire Wire Line
@@ -1051,14 +1020,14 @@ Wire Wire Line
 Wire Wire Line
 	6650 4050 6650 4750
 Wire Wire Line
-	7400 4150 7800 4150
+	7400 4150 7450 4150
 Wire Wire Line
 	7450 4250 7450 4150
 Connection ~ 7450 4150
 Wire Wire Line
 	7450 4650 7450 4750
 Wire Wire Line
-	6400 3050 6400 3950
+	6400 3050 6400 3750
 Wire Wire Line
 	6400 3750 6450 3750
 Connection ~ 6400 3750
@@ -1074,4 +1043,40 @@ Wire Wire Line
 	3500 5600 3750 5600
 NoConn ~ 3750 6000
 NoConn ~ 3750 3550
+Wire Wire Line
+	9350 4800 9350 4750
+Wire Wire Line
+	10350 4150 10350 4750
+Wire Wire Line
+	1500 1950 1750 1950
+Wire Wire Line
+	2200 1450 2200 1350
+Wire Wire Line
+	1700 1450 2200 1450
+Wire Wire Line
+	2200 850  2200 950 
+Wire Wire Line
+	1700 850  2200 850 
+Wire Wire Line
+	3600 7400 3600 7450
+Wire Wire Line
+	3600 7300 3600 7400
+Wire Wire Line
+	3600 6800 3600 6750
+Wire Wire Line
+	7850 2150 7900 2150
+Wire Wire Line
+	5350 3400 5450 3400
+Wire Wire Line
+	5250 3400 5300 3400
+Wire Wire Line
+	5300 3400 5350 3400
+Wire Wire Line
+	5150 4050 5650 4050
+Wire Wire Line
+	5450 3950 5650 3950
+Wire Wire Line
+	7450 4150 7800 4150
+Wire Wire Line
+	6400 3750 6400 3950
 $EndSCHEMATC
